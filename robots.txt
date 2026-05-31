@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://snooze.lt/sitemap.xml
+
+# Allow all important pages
+Allow: /

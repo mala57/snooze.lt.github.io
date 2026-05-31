@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Snooze.lt - AI-Powered Email Management | Organize Your Inbox</title>
+    <meta name="description" content="Snooze is an AI-powered email management tool that organizes your inbox automatically. Snooze emails, smart folders, and automatic sorting. Works with all email providers.">
+    <meta name="keywords" content="email management, AI email, inbox organization, email snooze, Gmail alternative, email automation, productivity tool">
+    <meta name="author" content="CVBC">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://snooze.lt/">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snooze.lt/">
+    <meta property="og:title" content="Snooze.lt - AI-Powered Email Management">
+    <meta property="og:description" content="Email that organizes itself. AI-powered snooze, smart folders, and automatic sorting.">
+    <meta property="og:image" content="https://snooze.lt/assets/og-image.png">
+    <meta property="og:site_name" content="Snooze">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://snooze.lt/">
+    <meta name="twitter:title" content="Snooze.lt - AI-Powered Email Management">
+    <meta name="twitter:description" content="Email that organizes itself. AI-powered snooze, smart folders, and automatic sorting.">
+    <meta name="twitter:image" content="https://snooze.lt/assets/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+    <link rel="apple-touch-icon" href="/assets/logo.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #1e3a5f;
+            --accent-gold: #ffb800;
+            --text-light: #f8f9fa;
+            --text-muted: #888;
+            --bg-dark: #0a0a0a;
+            --bg-card: #111;
+            --border: #1a1a1a;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 24px; 
+        }
+        
+        /* Navigation */
+        nav { 
+            padding: 20px 0; 
+            border-bottom: 1px solid var(--border); 
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        nav .container { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .logo { 
+            font-size: 24px; 
+            font-weight: 700; 
+            color: #fff; 
+            text-decoration: none;
+        }
+        .logo span {
+            color: var(--accent-gold);
+        }
+        .nav-links a { 
+            color: var(--text-muted); 
+            text-decoration: none; 
+            margin-left: 32px; 
+            transition: color 0.2s; 
+            font-weight: 500;
+        }
+        .nav-links a:hover { 
+            color: #fff; 
+        }
+        
+        /* Hero Section */
+        .hero { 
+            padding: 120px 0 80px; 
+            text-align: center; 
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero .tagline { 
+            font-size: 24px; 
+            color: var(--text-muted); 
+            margin-bottom: 48px; 
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: #0a0a0a;
+            padding: 16px 48px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(255, 184, 0, 0.3);
+        }
+        .hero .subtext { 
+            margin-top: 24px; 
+            color: #555; 
+            font-size: 14px; 
+        }
+        
+        /* Stats Section */
+        .stats { 
+            display: flex; 
+            justify-content: center; 
+            gap: 64px; 
+            padding: 60px 0; 
+            border-top: 1px solid var(--border); 
+        }
+        .stat { 
+            text-align: center; 
+        }
+        .stat-value { 
+            font-size: 48px; 
+            font-weight: 700; 
+            color: var(--accent-gold);
+        }
+        .stat-label { 
+            color: var(--text-muted); 
+            margin-top: 8px; 
+        }
+        
+        /* Features Section */
+        .features { 
+            padding: 80px 0; 
+        }
+        .section-title { 
+            text-align: center; 
+            font-size: 40px; 
+            margin-bottom: 16px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 64px;
+            font-size: 18px;
+        }
+        .features-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 32px; 
+        }
+        .feature { 
+            padding: 32px; 
+            background: var(--bg-card); 
+            border-radius: 16px; 
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        .feature:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-4px);
+        }
+        .feature-icon { 
+            font-size: 48px; 
+            margin-bottom: 24px; 
+        }
+        .feature h3 { 
+            font-size: 24px; 
+            margin-bottom: 16px; 
+        }
+        .feature p { 
+            color: var(--text-muted); 
+        }
+        
+        /* How it Works */
+        .how-it-works { 
+            padding: 80px 0; 
+            background: #0f0f0f; 
+        }
+        .steps { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-top: 48px;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+        .step { 
+            flex: 1; 
+            min-width: 250px;
+            text-align: center; 
+            padding: 0 24px; 
+        }
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 24px;
+            color: var(--accent-gold);
+        }
+        .step h3 { 
+            font-size: 20px; 
+            margin-bottom: 12px; 
+        }
+        .step p { 
+            color: var(--text-muted); 
+            font-size: 14px; 
+        }
+        
+        /* Pricing */
+        .pricing { 
+            padding: 80px 0; 
+        }
+        .pricing-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 32px; 
+            max-width: 800px; 
+            margin: 0 auto; 
+        }
+        .price-card {
+            padding: 48px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        .price-card.featured {
+            border-color: var(--accent-gold);
+            position: relative;
+        }
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-gold);
+            color: #0a0a0a;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .price-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .price span {
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+        .price-card ul {
+            list-style: none;
+            margin: 32px 0;
+        }
+        .price-card li {
+            padding: 8px 0;
+            color: var(--text-muted);
+        }
+        .price-card li::before {
+            content: "✓ ";
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a1a2e 100%);
+        }
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 24px;
+        }
+        .cta-section p {
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        footer p {
+            color: var(--text-muted);
+        }
+        footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+            .hero .tagline {
+                font-size: 18px;
+            }
+            .nav-links {
+                display: none;
+            }
+            .stats {
+                flex-direction: column;
+                gap: 32px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .steps {
+                flex-direction: column;
+            }
+        }
+    </style>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Snooze",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "Web, iOS, Android",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1000"
+        },
+        "description": "AI-powered email management tool that organizes your inbox automatically",
+        "url": "https://snooze.lt/",
+        "author": {
+            "@type": "Organization",
+            "name": "CVBC",
+            "url": "https://cvbc.es"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">Snooze<span>.</span>lt</a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="https://snozze.email">App</a>
+                <a href="https://cvbc.es">About</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Email that organizes itself</h1>
+            <p class="tagline">AI-powered snooze, smart folders, and automatic sorting. Take control of your inbox.</p>
+            <a href="https://snozze.email" class="cta-button">Try Snooze Free</a>
+            <p class="subtext">No credit card required. Works with Gmail, Outlook, and all email providers.</p>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stat">
+                <div class="stat-value">50K+</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">10M+</div>
+                <div class="stat-label">Emails Organized</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">4.8</div>
+                <div class="stat-label">User Rating</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Powerful Features</h2>
+            <p class="section-subtitle">Everything you need to master your inbox</p>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Smart Snooze</h3>
+                    <p>Snooze emails to return at the perfect time. AI suggests the best time based on email content and your habits.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📁</div>
+                    <h3>Auto Folders</h3>
+                    <p>AI automatically categorizes emails into smart folders. Newsletters, receipts, social - all organized instantly.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Priority Inbox</h3>
+                    <p>Important emails float to the top. AI learns what matters to you and prioritizes accordingly.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Privacy First</h3>
+                    <p>Your data stays in the EU. No data mining, no selling, no tracking. GDPR compliant by design.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Works Everywhere</h3>
+                    <p>Use with Gmail, Outlook, iCloud, or any email provider. Web app and mobile apps available.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Assistant</h3>
+                    <p>Smart suggestions for replies, follow-ups, and actions. Let AI handle the routine tasks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How it Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Get started in 3 simple steps</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Connect</h3>
+                    <p>Link your email accounts securely. We support Gmail, Outlook, and all major providers.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Organize</h3>
+                    <p>AI analyzes and categorizes your emails automatically. Set your preferences.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Enjoy</h3>
+                    <p>Experience a clean, organized inbox. Focus on what matters most.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Simple Pricing</h2>
+            <p class="section-subtitle">Start free, upgrade when you need</p>
+            
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Free</h3>
+                    <div class="price">€0<span>/month</span></div>
+                    <ul>
+                        <li>1 email account</li>
+                        <li>100 snoozes/month</li>
+                        <li>Basic auto-folders</li>
+                        <li>Web app access</li>
+                    </ul>
+                    <a href="https://snozze.email" class="cta-button">Get Started</a>
+                </div>
+                <div class="price-card featured">
+                    <div class="featured-badge">POPULAR</div>
+                    <h3>Pro</h3>
+                    <div class="price">€5<span>/month</span></div>
+                    <ul>
+                        <li>Unlimited email accounts</li>
+                        <li>Unlimited snoozes</li>
+                        <li>Advanced AI folders</li>
+                        <li>Priority inbox</li>
+                        <li>Mobile apps</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="https://snozze.email" class="cta-button">Start Free Trial</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to organize your inbox?</h2>
+            <p>Join 50,000+ users who have transformed their email experience with Snooze.</p>
+            <a href="https://snozze.email" class="cta-button">Try Snooze Free</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Snooze.lt - A <a href="https://cvbc.es">CVBC</a> Project. All rights reserved.</p>
+            <p><a href="https://www.cvbc.es/privacy-policy/">Privacy Policy</a></p>
+        </div>
+    </footer>
+</body>
+</html>
